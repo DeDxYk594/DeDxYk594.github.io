@@ -274,14 +274,27 @@ var vue = new Vue({
     q2: 1,
     p3: 1,
     q3: 1,
+    sww: 1,
     made: false,
     dstates: 0,
     nstates: 0,
   },
   methods: {
+    sss: function () {
+      console.log("dddd");
+      if (this.sww) this.sww = 0;
+      else this.sww = 1;
+    },
     calcNfa: async function () {
-      let I = "1",
+      let I = 1,
+        O = 1;
+      if (!this.sww) {
+        I = "1";
         O = "0";
+      } else {
+        I = "0";
+        O = "1";
+      }
       const p1 = parseInt(this.p1),
         q1 = parseInt(this.q1),
         p2 = parseInt(this.p2),
@@ -369,8 +382,15 @@ var vue = new Vue({
     },
     calc: async function () {
       // Определение параметров
-      let I = "1",
+      let I = 1,
+        O = 1;
+      if (!this.sww) {
+        I = "1";
         O = "0";
+      } else {
+        I = "0";
+        O = "1";
+      }
       const p1 = parseInt(this.p1),
         q1 = parseInt(this.q1),
         p2 = parseInt(this.p2),

@@ -19,18 +19,15 @@
     <a href="https://vk.com/warycow1">vk: warycow1</a>
     <a href="https://t.me/dedxyk594">tg: @dedxyk594</a>
     <a href="https://github.com/DeDxYk594/DeDxYk594.github.io">github</a>
-    <br>
+    <br />
     <div id="app">
+      <button @click="sss()">Поменять 0 и 1 местами</button>
       <div
         class="grid"
         style="display: flex; flex-direction: column; width: 90%"
       >
-        <div
-          style="
-            display: inline
-          "
-        >
-          {0^(
+        <div style="display: inline">
+          { {{sww?0:1}}^(
 
           <input
             size="1"
@@ -39,7 +36,7 @@
             @keyup.enter="calc()"
           />n+<input size="1" type="text" v-model="q1" @keyup.enter="calc()" />
 
-          )* 1^(
+          )* {{sww}}^(
           <input
             size="1"
             type="text"
@@ -47,7 +44,7 @@
             @keyup.enter="calc()"
           />m+<input size="1" type="text" v-model="q2" @keyup.enter="calc()" />
 
-          )* 0^(
+          )* {{sww?0:1}} ^(
           <input
             size="1"
             type="text"
