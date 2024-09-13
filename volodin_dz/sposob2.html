@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Способ 2 выполнения ДЗ от Володина Сергея</title>
+  </head>
+  <body style="height: 100vh">
+    <style>
+      body {
+        background: linear-gradient(
+          115deg,
+          rgba(21, 14, 113, 1) 0%,
+          rgba(47, 47, 47, 1) 100%
+        );
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      .divak {
+        padding: 20px 30px;
+        width: 50%;
+        transition: transform 0.5s ease-in;
+        margin: 0 auto;
+        background: linear-gradient(
+          191deg,
+          rgba(232, 232, 232, 1) 0%,
+          rgba(255, 255, 255, 1) 100%
+        );
+        border: solid 2px rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
+      }
+      #stalin {
+        transition: all 0.5s ease-in-out;
+      }
+    </style>
+    <div style="height: 20vh"></div>
+    <div class="divak" id="divak">
+      <div style="display: flex; flex-direction: row; align-items: center">
+        <img
+          id="stalin"
+          src="./stalin.jpg"
+          style="
+            width: 80px;
+            margin-right: 30px;
+            height: 80px;
+            overflow: hidden;
+            object-fit: cover;
+            border-radius: 50%;
+          "
+          alt="Tovarishch Stalin"
+        />
+        <span style="font-weight: 600">Сталин Иосиф Виссарионович</span>
+      </div>
+      <p>Чтобы закрыть диалог, нажмите снаружи него!</p>
+      <button id="rotate">Повернуть изображение</button>
+    </div>
+    <script>
+      const icon = document.getElementById("stalin");
+      const button = document.getElementById("rotate");
+      const divak = document.getElementById("divak");
+      const body = document.body;
+      let i = 0;
+      button.addEventListener("click", () => {
+        i += 5;
+        icon.style.webkitTransform = "rotate(" + i * 10 + "deg)";
+        icon.style.mozTransform = "rotate(" + i * 10 + "deg)";
+        icon.style.msTransform = "rotate(" + i * 10 + "deg)";
+        icon.style.oTransform = "rotate(" + i * 10 + "deg)";
+        icon.style.transform = "rotate(" + i * 10 + "deg)";
+      });
+      divak.addEventListener("click", (ev) => {
+        ev.stopPropagation();
+      });
+      body.addEventListener("click", () => {
+        setTimeout(() => {
+          divak.style.display = "none";
+        }, 1000);
+        divak.style.transform = "scale(0,0)";
+      });
+    </script>
+  </body>
+</html>
